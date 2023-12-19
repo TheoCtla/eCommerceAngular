@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../models/product.model';
-import { NgIf, NgStyle, NgFor } from '@angular/common';
+import {NgIf, NgStyle, NgFor, UpperCasePipe, CurrencyPipe} from '@angular/common';
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [NgIf, NgStyle, NgFor],
+  imports: [NgIf, NgStyle, NgFor, UpperCasePipe, CurrencyPipe],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.css'
 })

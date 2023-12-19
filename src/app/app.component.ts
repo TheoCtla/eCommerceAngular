@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, LOCALE_ID, OnInit} from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { ProductCardComponent } from "./product-card/product-card.component";
 import { Product } from './models/product.model';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr, 'fr');
+
 
 
 @Component({
@@ -10,7 +14,11 @@ import { Product } from './models/product.model';
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [CommonModule, RouterOutlet, ProductCardComponent, NgFor]
+  imports: [CommonModule, RouterOutlet, ProductCardComponent, NgFor],
+  providers: [{
+    provide: LOCALE_ID,
+    useValue: 'fr-FR'
+  }]
 })
 export class AppComponent implements OnInit {
   products!: Product[];
