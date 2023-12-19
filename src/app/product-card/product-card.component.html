@@ -1,0 +1,15 @@
+<h2>{{ myProduct.title }}</h2>
+<img [src]="myProduct.imageUrl" width="100"/>
+<p>{{ myProduct.description }}</p>
+
+<p *ngIf="myProduct.size?.length">Plusieurs tailles possibles</p>
+
+<button *ngFor="let size of myProduct.size">{{ size }}</button>
+
+<b>{{ myProduct.price }} €</b>
+<p>
+  <b [ngStyle]="{ color: myProduct.likes > 0 ? 'green' : 'red' }">
+    {{ myProduct.likes }} ❤️
+  </b>
+  <button (click)="onAddLike()">Like</button>
+</p>
